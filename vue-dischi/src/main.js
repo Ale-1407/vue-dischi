@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+// importazione bootstrap 5.2
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
 Vue.config.productionTip = false
 
 new Vue({
