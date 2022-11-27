@@ -1,6 +1,8 @@
 <template>
     <header>
-        ciao
+      <div class="logo">
+        <img src="../assets/logo-small.svg" alt="img">
+      </div>
     </header>
 </template>
 
@@ -11,3 +13,14 @@ export default {
 }
 </script>
 
+<style lang="scss">
+
+header{
+  background-color: #2e3a46;
+}
+
+.logo img{
+  height: 40px;
+  margin: 10px;
+}
+</style>
