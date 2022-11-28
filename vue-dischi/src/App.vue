@@ -7,7 +7,6 @@
 
 <script>
 import HeaderComp from './components/HeaderComp.vue'
-import axios from 'axios';
 import MainComp from './components/MainComp.vue'
 
 export default {
@@ -15,21 +14,7 @@ export default {
   components: {
     HeaderComp,
     MainComp
-  },
-  data(){
-    return{
-      
-    }
-  },
-  mounted(){
-    axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-      .then( (response => {
-        console.log(response.data.response)
-      }) )
-  },
-  // methods(){
-
-  // }
+  }
 }
 </script>
 
