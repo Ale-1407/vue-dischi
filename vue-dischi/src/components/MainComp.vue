@@ -1,5 +1,10 @@
 <template>
     <main>
+        <div class="text-left p-3 ">
+            <select name="" id="" v-model="optionGenere" class="rounded-4 p-1">
+                <option :value="elem" v-for="(elem, index) in arrayGeneri" :key="index">{{elem}}</option>
+            </select>
+        </div>
         <div class="cont-card w-75 d-flex flex-wrap">
             <CardComp v-for="(elem, index) in dataDischi" 
             :key="index" :card="elem" />
@@ -19,18 +24,26 @@ export default {
     },
     data(){
         return{
-            dataDischi: []
+            dataDischi: [],
+            optionGenere: '',
+            arrayGeneri: []
         }
   },
   mounted(){
-    this.getInfo();
-  },
-  methods: {
-    getInfo(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music').then( (response) => {
+            //inserisco tutte le informazioni dentro array dataDischi
             this.dataDischi = response.data.response
+            //ciclo su array di dischi
+            this.dataDischi.forEach( (singoloAlbum) => {
+                //condizione con includes per controllare se nell'array dei generi è 
+                //già presente il genere che voglio pushare
+                if( !this.arrayGeneri.includes(singoloAlbum.genre)){
+                    this.arrayGeneri.push(singoloAlbum.genre)
+                }
+            })
+            
         })
-    }
+
   }
 }
 </script>
@@ -44,6 +57,6 @@ main{
 .cont-card{
     margin: auto;
     padding: 5rem;
-    gap: 15px;
+    gap: 20px;
 }
 </style>
